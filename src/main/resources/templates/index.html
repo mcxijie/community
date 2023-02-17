@@ -6,7 +6,7 @@
     <link rel="icon" href="https://static.nowcoder.com/images/logo_87_87.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{css/global.css}"/>
+    <link rel="stylesheet" th:href="@{/css/global.css}"/>
     <title>牛客网-首页</title>
 </head>
 <body>
@@ -31,19 +31,19 @@
                         </li>
                         <li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser!=null}">
                             <a class="nav-link position-relative" th:href="@{/letter/list}">消息<span
-                                    class="badge badge-danger">12</span></a>
+                                    class="badge badge-danger"
+                                    th:text="${allUnreadCount!=0?allUnreadCount:''}">12</span></a>
                         </li>
-                        <li class="nav-item ml-3 btn-group-vertical"th:if="${loginUser==null}">
+                        <li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
                             <a class="nav-link" th:href="@{/register}">注册</a>
                         </li>
-                        <li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}"}>
+                        <li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
                             <a class="nav-link" th:href="@{/login}">登录</a>
                         </li>
                         <li class="nav-item ml-3 btn-group-vertical dropdown" th:if="${loginUser!=null}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle" th:src="${loginUser.headerUrl}"
-                                     style="width:30px;"/>
+                                <img th:src="${loginUser.headerUrl}" class="rounded-circle" style="width:30px;"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-center"
@@ -129,7 +129,7 @@
 
             <!-- 帖子列表 -->
             <ul class="list-unstyled">
-                <li class="media pb-3 pt-3 mb-3 border-bottom" th:each="map:${discussPost}">
+                <li class="media pb-3 pt-3 mb-3 border-bottom" th:each="map:${discussPosts}">
                     <a th:href="@{|/user/profile/${map.user.id}|}">
                         <img th:src="${map.user.headerUrl}" class="mr-4 rounded-circle" alt="用户头像"
                              style="width:50px;height:50px;">
@@ -142,7 +142,7 @@
                         </h6>
                         <div class="text-muted font-size-12">
                             <u class="mr-3" th:utext="${map.user.username}">寒江雪</u> 发布于 <b
-                                th:text="${#dates.format(map.post.createTime,'yyyy-mm-dd HH:mm:ss')}">2019-04-15
+                                th:text="${#dates.format(map.post.createTime,'yyyy-MM-dd HH:mm:ss')}">2019-04-15
                             15:32:18</b>
                             <ul class="d-inline float-right">
                                 <li class="d-inline ml-2">赞 <span th:text="${map.likeCount}">11</span></li>
@@ -152,7 +152,6 @@
                         </div>
                     </div>
                 </li>
-
             </ul>
             <!-- 分页 -->
             <nav class="mt-5" th:if="${page.rows>0}" th:fragment="pagination">
@@ -162,8 +161,9 @@
                     </li>
                     <li th:class="|page-item ${page.current==1?'disabled':''}|">
                         <a class="page-link" th:href="@{${page.path}(current=${page.current-1})}">上一页</a></li>
-                    <li th:class="|page-item ${i==page.current?'active':''}|" th:each="i:${#numbers.sequence(page.from,page.to)}">
-                        <a class="page-link" href="#" th:text="${i}">1</a>
+                    <li th:class="|page-item ${i==page.current?'active':''}|"
+                        th:each="i:${#numbers.sequence(page.from,page.to)}">
+                        <a class="page-link" th:href="@{${page.path}(current=${i})}" th:text="${i}">1</a>
                     </li>
                     <li th:class="|page-item ${page.current==page.total?'disabled':''}|">
                         <a class="page-link" th:href="@{${page.path}(current=${page.current+1})}">下一页</a>
@@ -245,7 +245,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script th:src="@{js/global.js}"></script>
+<script th:src="@{/js/global.js}"></script>
 <script th:src="@{js/index.js}"></script>
 </body>
 </html>

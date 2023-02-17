@@ -50,8 +50,8 @@ public class HomeController implements CommunityConstant {
                 discussPost.add(map);
             }
         }
-        model.addAttribute("discussPost", discussPost);
-        return "/index";
+        model.addAttribute("discussPosts", discussPost);
+         return "/index";
     }
 
     @RequestMapping(path = "/error", method = RequestMethod.GET)

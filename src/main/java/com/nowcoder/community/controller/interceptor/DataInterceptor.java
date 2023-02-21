@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class DataInterceptor implements HandlerInterceptor {
+
     @Autowired
     private DataService dataService;
 
@@ -20,13 +21,13 @@ public class DataInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //统计UV
+        // 统计UV
         String ip = request.getRemoteHost();
         dataService.recordUV(ip);
 
-        //统计DAU
+        // 统计DAU
         User user = hostHolder.getUser();
-        if (user == null) {
+        if (user != null) {
             dataService.recordDAU(user.getId());
         }
 

@@ -15,3 +15,402 @@ Caused by: java.lang.IllegalStateException: No record found for selection of Tri
 	at org.quartz.impl.jdbcjobstore.StdJDBCDelegate.selectTrigger(StdJDBCDelegate.java:1819)
 	at org.quartz.impl.jdbcjobstore.JobStoreSupport.retrieveTrigger(JobStoreSupport.java:1536)
 	... 6 common frames omitted
+2023-02-22 22:41:19,658 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java:42] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method alphaTrigger in com.nowcoder.community.config.QuartzConfig required a single bean, but 2 were found:
+	- alphaJobDetal: defined by method 'alphaJobDetal' in class path resource [com/nowcoder/community/config/QuartzConfig.class]
+	- postScoreRefreshJobDetail: defined by method 'postScoreRefreshJobDetail' in class path resource [com/nowcoder/community/config/QuartzConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2023-02-22 22:41:19,661 ERROR [main] o.s.t.c.TestContextManager [TestContextManager.java:250] Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3aa078fd] to prepare test instance [com.nowcoder.community.QuartzTests@3e0e3048]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alphaTrigger' defined in class path resource [com/nowcoder/community/config/QuartzConfig.class]: Unsatisfied dependency expressed through method 'alphaTrigger' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.quartz.JobDetail' available: expected single matching bean but found 2: alphaJobDetal,postScoreRefreshJobDetail
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:824)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 26 common frames omitted
+Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.quartz.JobDetail' available: expected single matching bean but found 2: alphaJobDetal,postScoreRefreshJobDetail
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveNotUnique(DependencyDescriptor.java:221)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1226)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 44 common frames omitted
+2023-02-22 22:42:00,612 ERROR [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java:42] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method alphaTrigger in com.nowcoder.community.config.QuartzConfig required a single bean, but 2 were found:
+	- alphaJobDetal: defined by method 'alphaJobDetal' in class path resource [com/nowcoder/community/config/QuartzConfig.class]
+	- postScoreRefreshJobDetail: defined by method 'postScoreRefreshJobDetail' in class path resource [com/nowcoder/community/config/QuartzConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2023-02-22 23:01:04,106 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-6, groupId=test-consumer-group] Offset commit failed on partition publish-0 at offset 17: The coordinator is not aware of this member.
+2023-02-22 23:01:04,107 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-2, groupId=test-consumer-group] Offset commit failed on partition delete-0 at offset 0: The coordinator is not aware of this member.
+2023-02-22 23:01:04,107 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-4, groupId=test-consumer-group] Offset commit failed on partition comment-0 at offset 10: The coordinator is not aware of this member.
+2023-02-22 23:01:21,955 ERROR [communityScheduler_Worker-3] o.q.c.JobRunShell [JobRunShell.java:211] Job communityJobGroup.postScoreRefreshJob threw an unhandled Exception: 
+org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:268)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:94)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.sCard(DefaultedRedisConnection.java:565)
+	at org.springframework.data.redis.core.DefaultSetOperations.lambda$size$12(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultSetOperations.size(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.DefaultBoundSetOperations.size(DefaultBoundSetOperations.java:215)
+	at com.nowcoder.community.quartz.PostScoreRefreshJob.execute(PostScoreRefreshJob.java:55)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:129)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy140.scard(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:92)
+	... 10 common frames omitted
+Caused by: java.io.IOException: Operation timed out
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1125)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:682)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:536)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+2023-02-22 23:01:21,958 ERROR [communityScheduler_Worker-3] o.q.c.ErrorLogger [QuartzScheduler.java:2407] Job (communityJobGroup.postScoreRefreshJob threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:268)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:94)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.sCard(DefaultedRedisConnection.java:565)
+	at org.springframework.data.redis.core.DefaultSetOperations.lambda$size$12(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultSetOperations.size(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.DefaultBoundSetOperations.size(DefaultBoundSetOperations.java:215)
+	at com.nowcoder.community.quartz.PostScoreRefreshJob.execute(PostScoreRefreshJob.java:55)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+Caused by: io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:129)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy140.scard(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:92)
+	... 10 common frames omitted
+Caused by: java.io.IOException: Operation timed out
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1125)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:682)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:536)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+2023-02-22 23:06:21,857 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-2, groupId=test-consumer-group] Offset commit failed on partition delete-0 at offset 0: The coordinator is not aware of this member.
+2023-02-22 23:06:21,859 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-6, groupId=test-consumer-group] Offset commit failed on partition publish-0 at offset 17: The coordinator is not aware of this member.
+2023-02-22 23:06:21,859 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-4, groupId=test-consumer-group] Offset commit failed on partition comment-0 at offset 10: The coordinator is not aware of this member.
+2023-02-22 23:06:56,096 ERROR [communityScheduler_Worker-4] o.q.c.JobRunShell [JobRunShell.java:211] Job communityJobGroup.postScoreRefreshJob threw an unhandled Exception: 
+org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:268)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:94)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.sCard(DefaultedRedisConnection.java:565)
+	at org.springframework.data.redis.core.DefaultSetOperations.lambda$size$12(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultSetOperations.size(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.DefaultBoundSetOperations.size(DefaultBoundSetOperations.java:215)
+	at com.nowcoder.community.quartz.PostScoreRefreshJob.execute(PostScoreRefreshJob.java:55)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:129)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy140.scard(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:92)
+	... 10 common frames omitted
+Caused by: java.io.IOException: Operation timed out
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1125)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:682)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:536)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+2023-02-22 23:06:56,118 ERROR [communityScheduler_Worker-4] o.q.c.ErrorLogger [QuartzScheduler.java:2407] Job (communityJobGroup.postScoreRefreshJob threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:268)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:94)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.sCard(DefaultedRedisConnection.java:565)
+	at org.springframework.data.redis.core.DefaultSetOperations.lambda$size$12(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:184)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:95)
+	at org.springframework.data.redis.core.DefaultSetOperations.size(DefaultSetOperations.java:274)
+	at org.springframework.data.redis.core.DefaultBoundSetOperations.size(DefaultBoundSetOperations.java:215)
+	at com.nowcoder.community.quartz.PostScoreRefreshJob.execute(PostScoreRefreshJob.java:55)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+Caused by: io.lettuce.core.RedisException: java.io.IOException: Operation timed out
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:129)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy140.scard(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sCard(LettuceSetCommands.java:92)
+	... 10 common frames omitted
+Caused by: java.io.IOException: Operation timed out
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1125)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:682)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:582)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:536)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+2023-02-22 23:06:56,357 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-2, groupId=test-consumer-group] Offset commit failed on partition delete-0 at offset 0: The coordinator is not aware of this member.
+2023-02-22 23:06:56,358 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-6, groupId=test-consumer-group] Offset commit failed on partition publish-0 at offset 17: The coordinator is not aware of this member.
+2023-02-22 23:06:56,358 ERROR [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java:843] [Consumer clientId=consumer-4, groupId=test-consumer-group] Offset commit failed on partition comment-0 at offset 10: The coordinator is not aware of this member.
+2023-02-22 23:13:00,272 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:22] 服务器发生异常: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by type desc, create_time desc
+        limit 0, 10' at line 11
+### The error may exist in file [/Users/xijie/IdeaProjects/community/target/classes/mapper/discusspost-mapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select                   id, user_id, title, content, type, status, create_time, comment_count, score               from discuss_post         where status != 2                                 order by type desc,score desc,create_time desc                   order by type desc, create_time desc         limit ?, ?
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by type desc, create_time desc
+        limit 0, 10' at line 11
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by type desc, create_time desc
+        limit 0, 10' at line 11
+2023-02-22 23:13:00,272 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+2023-02-22 23:13:00,272 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.sun.proxy.$Proxy86.selectList(Unknown Source)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.sun.proxy.$Proxy101.selectDiscussPosts(Unknown Source)
+2023-02-22 23:13:00,273 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.nowcoder.community.service.DiscussPostService.findDiscussPost(DiscussPostService.java:21)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.nowcoder.community.service.DiscussPostService$$FastClassBySpringCGLIB$$438c48e5.invoke(<generated>)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.nowcoder.community.service.DiscussPostService$$EnhancerBySpringCGLIB$$954701ac.findDiscussPost(<generated>)
+2023-02-22 23:13:00,274 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] com.nowcoder.community.controller.HomeController.getIndexPage(HomeController.java:42)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] java.lang.reflect.Method.invoke(Method.java:498)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+2023-02-22 23:13:00,275 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+2023-02-22 23:13:00,276 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+2023-02-22 23:13:00,277 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+2023-02-22 23:13:00,278 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+2023-02-22 23:13:00,279 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+2023-02-22 23:13:00,280 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+2023-02-22 23:13:00,281 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+2023-02-22 23:13:00,282 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+2023-02-22 23:13:00,283 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,284 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2023-02-22 23:13:00,285 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2023-02-22 23:13:00,286 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+2023-02-22 23:13:00,287 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+2023-02-22 23:13:00,287 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+2023-02-22 23:13:00,287 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+2023-02-22 23:13:00,288 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2023-02-22 23:13:00,288 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+2023-02-22 23:13:00,288 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+2023-02-22 23:13:00,288 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2023-02-22 23:13:00,288 ERROR [http-nio-8080-exec-6] c.n.c.c.a.ExceptionAdvice [ExceptionAdvice.java:24] java.lang.Thread.run(Thread.java:750)

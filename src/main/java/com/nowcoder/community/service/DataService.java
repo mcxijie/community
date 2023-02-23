@@ -27,7 +27,6 @@ public class DataService {
     public void recordUV(String ip) {
         String redisKey = RedisKeyUtil.getUVKey(df.format(new Date()));
         redisTemplate.opsForHyperLogLog().add(redisKey, ip);
-        System.out.println("aaaa");
     }
 
     // 统计指定日期范围内的UV
